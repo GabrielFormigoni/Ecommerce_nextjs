@@ -1,11 +1,17 @@
 import React from "react";
+import Head from "next/head";
 import { HeroBanner, Product, FooterBanner } from "../components";
 import { client } from "../lib/client";
 
-const Home = () => {
+const Home = ({ products, bannerData }) => {
   return (
     <>
-      <HeroBanner />
+      <Head>
+        <title>next-ecommerce</title>
+      </Head>
+
+      <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
+
       <div className="products-heading">
         <h2>Best selling products</h2>
         <p>
@@ -13,13 +19,14 @@ const Home = () => {
           keep them organized and whole.
         </p>
       </div>
+
       <div className="products-container">
-        {["product 1", "product 2", "product 3"].map((product, index) => (
-          <div key={index}>{product}</div>
+        {products?.map((product) => (
+          <Product key={product._id} product={product} />
         ))}
       </div>
 
-      <FooterBanner />
+      <FooterBanner footerBanner={bannerData.length && bannerData[0]} />
     </>
   );
 };
@@ -35,4 +42,5 @@ export const getServerSideProps = async () => {
     props: { products, bannerData },
   };
 };
+
 export default Home;
