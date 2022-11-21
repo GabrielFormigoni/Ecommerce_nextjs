@@ -1,5 +1,6 @@
 import React from "react";
 import { HeroBanner, Product, FooterBanner } from "../components";
+import { client } from "../lib/client";
 
 const Home = () => {
   return (
@@ -23,4 +24,15 @@ const Home = () => {
   );
 };
 
+export const getServerSideProps = async () => {
+  const productQuery = '*[_type == "product"]';
+  const products = await client.fetch(productQuery);
+
+  const bannerQuery = '*[_type == "banner"]';
+  const bannerData = await client.fetch(bannerQuery);
+
+  return {
+    props: { products, bannerData },
+  };
+};
 export default Home;
