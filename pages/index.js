@@ -1,15 +1,10 @@
 import React from "react";
-import Head from "next/head";
 import { HeroBanner, Product, FooterBanner } from "../components";
 import { client } from "../lib/client";
 
 const Home = ({ products, bannerData }) => {
   return (
     <>
-      <Head>
-        <title>next-ecommerce</title>
-      </Head>
-
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
 
       <div className="products-heading">
