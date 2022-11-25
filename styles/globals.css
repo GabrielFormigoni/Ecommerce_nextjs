@@ -676,12 +676,13 @@ span.text-red {
   }
   .cart-heading {
     margin-top: 35px;
+    padding-left: 20px;
   }
   .product-container {
     margin-top: 10px;
   }
   .product {
-    padding: 20px 5px;
+    padding: 20px 25px;
   }
   .product .cart-product-image {
     width: 25%;
