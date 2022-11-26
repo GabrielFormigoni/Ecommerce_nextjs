@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsBagCheckFill } from "react-icons/bs";
 import Link from "next/link";
+import { runFireworks } from "../lib/utils";
 
 import { useStateContext } from "../context/StateContext";
 
 const success = () => {
+  const { setCartItens, setTotalPrice, setTotalQuantities } = useStateContext();
+
+  useEffect(() => {
+    setCartItens([]);
+    setTotalPrice(0);
+    setTotalQuantities(0);
+    runFireworks();
+  }, []);
+
   return (
     <div className="success-wrapper">
       <div className="success">
