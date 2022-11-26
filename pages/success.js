@@ -23,8 +23,8 @@ const success = () => {
         </p>
         <h2>Thank you for buying in our store!</h2>
         <p className="email-msg">Check you email imbox for your receipt!</p>
-        <p>
-          If you have any questions, please send an email to{" "}
+        <p className="description">
+          If you have any questions, please send an email to
           <a className="email" href="mailto:purshase@gmail.com">
             purshase@gmail.com
           </a>
